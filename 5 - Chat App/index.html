@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		
+		<meta charset="utf-8">
+		
+		<title>React App Template</title>
+		
+		<script src="https://unpkg.com/lodash@4.17.15/lodash.min.js" crossorigin></script>
+		<script src="https://unpkg.com/luxon@1.3.0/build/global/luxon.js" crossorigin></script>
+		<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+		<script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.production.min.js" crossorigin></script>
+		<script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js" crossorigin></script>
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	</head>
+
+	<body>
+		
+		<div id="root"></div>
+		
+		<script type="text/javascript" src="../lily-components/util.js"></script>
+		
+		<script type="text/jsx" src="../lily-components/layout.jsx"></script>
+		<script type="text/jsx" src="../lily-components/controls.jsx"></script>
+		
+		<script type="text/jsx" src="app.jsx"></script>
+
+		<script type="text/jsx">
+
+			Util.logFetch = true;
+
+			ReactDOM.render(
+			<>
+				<MaterialUI.CssBaseline/>
+				<ReactRouterDOM.HashRouter>
+					<App/>
+				</ReactRouterDOM.HashRouter>
+			</>, document.querySelector("#root"));
+
+		</script>
+		
+	</body>
+
+</html>
