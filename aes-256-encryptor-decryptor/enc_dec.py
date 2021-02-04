@@ -1,8 +1,3 @@
-"""
-Created on Tue Jan 21 20:13:22 2020
-@author: Ra
-"""
-
 from Crypto import Random
 from Crypto.Hash import SHA256
 from Crypto.Cipher import AES
