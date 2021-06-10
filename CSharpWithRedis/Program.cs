@@ -11,7 +11,7 @@ namespace CSharpWithRedis
 	{
 		static void Main(string[] args)
 		{
-			var db = new RedisDb("10.0.2.7,password=eRHrHGTTf6vDnvKFkqDV3Mg2NLKhbqM41mMmTIoy");
+			var db = new RedisDb("10.0.2.7,password=");
 
 			db.ValueSet("users", 1000, "hasPony", "yes");
 			var v = db.ValueGet("users", 1000, "hasPony");
