@@ -59,40 +59,41 @@
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem});
 			this.menu_strip.Name = "menu_strip";
-			this.menu_strip.Size = new System.Drawing.Size(56, 26);
+			this.menu_strip.Size = new System.Drawing.Size(56, 32);
 			this.menu_strip.Text = "File";
 			// 
 			// newToolStripMenuItem
 			// 
 			this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-			this.newToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.newToolStripMenuItem.Size = new System.Drawing.Size(175, 34);
 			this.newToolStripMenuItem.Text = "New";
 			this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
 			// 
 			// openToolStripMenuItem
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(175, 34);
 			this.openToolStripMenuItem.Text = "Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(175, 34);
 			this.saveToolStripMenuItem.Text = "Save";
 			this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
 			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(175, 34);
 			this.saveAsToolStripMenuItem.Text = "Save As";
 			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
 			// 
 			// txtbox_main
 			// 
 			this.txtbox_main.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtbox_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtbox_main.Location = new System.Drawing.Point(0, 36);
 			this.txtbox_main.Multiline = true;
 			this.txtbox_main.Name = "txtbox_main";

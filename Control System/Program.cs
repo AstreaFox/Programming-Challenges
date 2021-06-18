@@ -16,7 +16,7 @@ namespace Control_System
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new form_label());
+			Application.Run(new Initializer());
 		}
 	}
 }
