@@ -26,7 +26,7 @@ namespace PokemonGen
 
 		private void DisplayImage()
 		{
-			var index = random.Next(0, 500);
+			var index = random.Next(1, 898);
 			var number = index.ToString().PadLeft(3, '0');
 			byte[] responseData = client.DownloadData($"https://assets.pokemon.com/assets/cms2/img/pokedex/full/{number}.png");
 			Stream stream = new MemoryStream(responseData);
