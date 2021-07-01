@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+        <button id="generate">Generate</button>
+        <div><img id="generated_image"></div>
+
+		<script>
+
+            const getRandom = (min, max) =>
+                Math.floor(Math.random() * (max - min) + min);
+
+            document.getElementById("generate").addEventListener("click", () => 
+            {     
+                const random_int = getRandom(1, 898).toString().padStart(3, "0");
+
+                document.getElementById("generated_image").src = 
+                    `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${random_int}.png`;
+            });
+
+		</script>
+
+	</body>
+
+</html>

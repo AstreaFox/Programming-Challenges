@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+        <input id="expression" type="text">
+        <button id="calculate">Calculate</button>
+        <div style="margin-top: 10px;">Answer: <span id="answer"></span></div>
+
+		<script>
+
+        document.getElementById("calculate").addEventListener("click", () => 
+        {
+            const expression = document.getElementById("expression").value;
+            const answer = eval(expression);
+            
+            document.getElementById("answer").innerText = answer;
+        });
+
+		</script>
+
+	</body>
+
+</html>

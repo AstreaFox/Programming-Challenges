@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+        <span>Seconds since page load: </span>
+        <span id="timer"></span>
+
+		<script>
+            
+            //do not use .innerHTML -> affects all HTML-related characters, e.g. misinterpret a '<', also affecting tags
+            //span and div are the same, except div inserts a newline char before and after its contents, span doesn't (inline)
+            //let and const are better practice than var, due to remaining bugs
+
+            let counter = 0;
+
+            setInterval(() =>
+            {
+                counter++;
+                document.getElementById("timer").innerText = counter;
+            }, 1000);
+
+		</script>
+
+	</body>
+
+</html>
