@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+		<div id="button_div" style="position: fixed; padding: 60px;">
+			<button id="button" style="font-size: 20px;">Click me!</button>
+		</div>
+
+		<script>
+			
+			const getRandom = (min, max) =>
+				Math.floor(Math.random() * (max - min) + min);
+			
+			const getBodyWidth = () => Math.max(
+				document.body.scrollWidth,
+				document.documentElement.scrollWidth,
+				document.body.offsetWidth,
+				document.documentElement.offsetWidth,
+				document.documentElement.clientWidth);
+
+			const getBodyHeight = () => Math.max(
+				document.body.scrollHeight,
+				document.documentElement.scrollHeight,
+				document.body.offsetHeight,
+				document.documentElement.offsetHeight,
+				document.documentElement.clientHeight);
+
+			const buttonDiv = document.getElementById("button_div");
+			const button = document.getElementById("button");
+
+			buttonDiv.addEventListener("mouseenter", e =>
+			{
+				let x = 0;
+				let y = 0;
+
+				while (true)
+				{
+					x = getRandom(0, getBodyWidth() - buttonDiv.offsetWidth);
+					if (Math.abs(x - e.pageX) > buttonDiv.offsetWidth) break;
+				}
+
+				while (true)
+				{
+					y = getRandom(0, getBodyHeight() - buttonDiv.offsetHeight);
+					if (Math.abs(y - e.pageY) > buttonDiv.offsetHeight) break;
+				}
+
+				buttonDiv.style.left = `${x}px`;
+				buttonDiv.style.top = `${y}px`;
+			});
+
+			button.addEventListener("click", e => alert("Ouch!"));
+
+		</script>
+
+	</body>
+
+</html>
