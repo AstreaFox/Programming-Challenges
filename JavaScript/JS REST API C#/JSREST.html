@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<div style="margin-bottom: 20px;">
+		<input id="messageInput" type="text">
+		<button id="sendButton">Send!</button>
+	</div>
+
+	<div id="messages" style="font-size: 20px;"></div>
+
+	<body>
+
+		<script>
+
+			const messages = document.getElementById("messages");
+			const messageInput = document.getElementById("messageInput");
+			const sendButton = document.getElementById("sendButton");
+
+			setInterval(() =>
+			{
+				//messages.innerText = "Test";
+				//if api + html/js comes from same server, server name is optional in FETCH request, if not, be explicit
+				fetch("/messages", { method: "GET" }).then(response =>
+				{
+					if (!response.ok) return;
+					response.json().then(responseBody =>
+					{
+						messages.innerText = responseBody.join("\n");
+					});
+				});
+			}, 500);
+
+			const send = () =>
+			{
+				fetch("/messages", { method: "PUT", body: messageInput.value });
+				messageInput.value = "";
+			};
+
+			sendButton.onclick = () => send();
+
+			messageInput.onkeypress = e =>
+			{
+				//=== achieves equality (==), but using == creates behaviour of type conversion - NOT wanted!
+				if (e.key === "Enter") send();
+			}
+
+		</script>
+
+	</body>
+
+</html>
