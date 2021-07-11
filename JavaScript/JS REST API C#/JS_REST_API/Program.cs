@@ -22,7 +22,7 @@ namespace JS_REST_API
 
 			server.AddExactRoute("PUT", "/messages", (request, response) =>
 			{
-				messages.Add(request.ReadBodyText());
+				messages.Add($"[{request.ClientIP}] {request.ReadBodyText()}");
 			});
 
 			server.AddExactRoute("GET", "/messages", (request, response) =>

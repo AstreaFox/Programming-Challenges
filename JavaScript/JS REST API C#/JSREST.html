@@ -8,8 +8,13 @@
 			Full-Stack Chat App - Version 2
 		</div>
 
-		<div id="messages"
-			style="font-size: 20px; height: calc(100vh - 110px);">
+		<div id="messages" 
+			style="
+				font-size: 20px;
+				height: calc(100vh - 120px);
+				overflow-x: hidden;
+				overflow-y: auto;
+				margin-bottom: 10px;">
 		</div>
 
 		<div style="margin-bottom: 20px;">
@@ -38,6 +43,8 @@
 			const messageInput = document.getElementById("messageInput");
 			const sendButton = document.getElementById("sendButton");
 
+			var messageCount = 0;
+
 			setInterval(() =>
 			{
 				//messages.innerText = "Test";
@@ -45,9 +52,14 @@
 				fetch("/messages", { method: "GET" }).then(response =>
 				{
 					if (!response.ok) return;
-					response.json().then(responseBody =>
+					response.json().then(restMessages =>
 					{
-						messages.innerText = responseBody.join("\n");
+						messages.innerText = restMessages.join("\n");
+
+						if (restMessages.length > messageCount)
+							messages.scrollTop = messages.scrollHeight;
+						
+						messageCount = restMessages.length;
 					});
 				});
 			}, 500);
