@@ -2,39 +2,46 @@
 <!DOCTYPE html>
 <html>
 
-	<div style="position: absolute; left: 15vw; width: 70vw;">
+	<body style="color: #000; background-color: #eee;">
+
+		<div style="position: absolute; left: 15vw; width: 70vw;">
 		
-		<div style="font-size: 30px; font-weight: bold; margin-bottom: 20px;">
-			Full-Stack Chat App - Version 3
-		</div>
-
-		<div id="messages" 
-			style="
-				font-size: 20px;
-				height: calc(100vh - 120px);
-				overflow-x: hidden;
-				overflow-y: auto;
-				margin-bottom: 10px;">
-		</div>
-
-		<div style="margin-bottom: 20px;">
-
-			<input id="usernameInput" type="text" placeholder="Username"
-				style="width: 100px; font-size: 20px;">
-
-			<input id="messageInput" type="text" placeholder="Message"
-				style="width: calc(70vw - 200px); font-size: 20px;">
-
-			<button id="sendButton"
-				style="font-size: 20px; width: 70px;">
-				Send!
-			</button>
-
-		</div>
-
-	</div>
-
-	<body>
+			<div style="font-size: 30px; font-weight: bold; margin-bottom: 20px;">
+				Full-Stack Chat App - Version 3.1
+			</div>
+	
+			<div id="darkMode"
+				style="position: absolute; right: 0; top: 10px; cursor: pointer; user-select: none;">
+				<span style="vertical-align: middle;">Dark Mode</span>
+				<input id="darkModeToggle" type="range" min="0" max="1" value="0"
+					style="width: 30px; vertical-align: middle; pointer-events: none;">
+			</div>
+	
+			<div id="messages" 
+				style="
+					font-size: 20px;
+					height: calc(100vh - 120px);
+					overflow-x: hidden;
+					overflow-y: auto;
+					margin-bottom: 10px;">
+			</div>
+	
+			<div style="margin-bottom: 20px;">
+	
+				<input id="usernameInput" type="text" placeholder="Username"
+					style="width: 100px; font-size: 20px;">
+	
+				<input id="messageInput" type="text" placeholder="Message"
+					style="width: calc(70vw - 200px); font-size: 20px;">
+	
+				<button id="sendButton"
+					style="font-size: 20px; width: 70px;">
+					Send!
+				</button>
+	
+			</div>
+	
+		</div>	
 
 		<script>
 
@@ -42,6 +49,9 @@
 			const usernameInput = document.getElementById("usernameInput");
 			const messageInput = document.getElementById("messageInput");
 			const sendButton = document.getElementById("sendButton");
+			const darkMode = document.getElementById("darkMode");
+			const darkModeToggle = document.getElementById("darkModeToggle");
+			const htmlBody = document.getElementsByTagName("body")[0];
 
 			var messageCount = 0;
 
@@ -78,6 +88,22 @@
 			sendButton.onclick = () => send();
 
 			messageInput.onkeypress = e => { if (e.key === "Enter") send();	}
+
+			darkMode.onclick = () =>
+			{
+				darkModeToggle.value ^= 1;
+
+				if (darkModeToggle.value === "1")
+				{
+					htmlBody.style.color = "#fff";
+					htmlBody.style.backgroundColor = "#333";
+				}
+				else
+				{
+					htmlBody.style.color = "#000";
+					htmlBody.style.backgroundColor = "#eee";
+				}
+			};
 
 		</script>
 
