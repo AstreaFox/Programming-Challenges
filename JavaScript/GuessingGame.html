@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+		<div id="cpu_response" style="margin-bottom: 10px;">
+			Guess The Number (0-99)
+		</div>
+		
+		<!-- always put id before other attributes -->
+		<div>
+			<input id="user_guess">
+			<button id="submit_guess">Submit</button>
+			<button id="restart" style="display: none;">Restart</button>
+		</div>
+
+		<script>
+			
+			//remember to put the element in speech marks, otherwise it is processed as a variable that does not exist
+			const cpu_response = document.getElementById("cpu_response");
+			const user_guess = document.getElementById("user_guess");
+			const submit_guess = document.getElementById("submit_guess");
+			const restart = document.getElementById("restart");
+
+			let generated_answer = Math.floor(Math.random() * 99);
+			let guess_counter = 0;
+
+			const do_guess = () =>
+			{
+				const guess = parseInt(user_guess.value);
+
+				guess_counter++;
+				
+				//backticks ` let you insert variables
+				if (guess > generated_answer)
+					cpu_response.innerText = `Too high (${guess_counter})`;
+					
+				else if (guess < generated_answer)
+					cpu_response.innerText = `Too low (${guess_counter})`;
+					
+				else if (guess === generated_answer)
+				{
+					cpu_response.innerText = `You did something right for once in your life (${guess_counter})`;
+
+					submit_guess.style.display = "none";
+					restart.style.display = "inline";
+					user_guess.style.display = "none";
+				}
+
+				user_guess.value = "";
+			};
+
+			submit_guess.onclick = () => do_guess();
+			user_guess.onkeypress = e => { if (e.key === "Enter") do_guess(); }
+
+			restart.onclick = () => location.reload();
+
+		</script>
+		
+	</body>
+
+</html>
