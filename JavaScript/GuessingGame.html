@@ -14,6 +14,8 @@
 			<button id="restart" style="display: none;">Restart</button>
 		</div>
 
+		<div id="insult" style="margin-top: 10px;"></div>
+
 		<script>
 			
 			//remember to put the element in speech marks, otherwise it is processed as a variable that does not exist
@@ -21,6 +23,7 @@
 			const user_guess = document.getElementById("user_guess");
 			const submit_guess = document.getElementById("submit_guess");
 			const restart = document.getElementById("restart");
+			const insult = document.getElementById("insult");
 
 			let generated_answer = Math.floor(Math.random() * 99);
 			let guess_counter = 0;
@@ -33,10 +36,16 @@
 				
 				//backticks ` let you insert variables
 				if (guess > generated_answer)
+				{
+					insult_selector();
 					cpu_response.innerText = `Too high (${guess_counter})`;
+				}
 					
 				else if (guess < generated_answer)
+				{
+					insult_selector();
 					cpu_response.innerText = `Too low (${guess_counter})`;
+				}
 					
 				else if (guess === generated_answer)
 				{
@@ -54,6 +63,49 @@
 			user_guess.onkeypress = e => { if (e.key === "Enter") do_guess(); }
 
 			restart.onclick = () => location.reload();
+
+			const insult_selector = () =>
+			{
+				const insults =
+				[
+
+					"Don’t feel bad, there are many people who have no talent.",
+					"You're living proof that someone can live without a brain.",
+					"I’ve seen people like you but I had to pay admission.",//
+					"You’re the reason God created the middle finger.",
+					"I’m not insulting you, I’m describing you.",
+					"Keep rolling your eyes, you might eventually find a brain.",//
+					"You are the human version of period cramps.",//
+					"You are so full of shit, the toilet’s jealous.",
+					"I can see your point, but I still think you're full of shit.",
+					"Ahhh...I see the fuck-up fairy has visited us again...",
+					"Thank you. We're all refreshed and challenged by your unique point of view.",
+					"If I said anything to offend you it was purely intentional.",
+					"I'd like to help you out. Which way did you come in?",
+					"If I throw a stick, will you go away?",
+					"I’d explain it to you, but I don’t have any crayons with me.",
+					"The last time I saw a face like yours I fed it a banana.",
+					"If stupidity was painful, you'd be in agony.",
+					"You started at the bottom and it's been downhill ever since.",
+					"Someday you'll find yourself, and will you be disappointed.",
+					"Anybody who told you to just be yourself couldn't have given you worse advice.",
+					"You are proof that God has a sense of humour.",
+					"Don't be ashamed of yourself. That's your parents' job.",
+					"What doesn't kill you just disappoints me.",//
+					"Hey, train wreck! This isn't your station.",
+					"If you ran like your mouth, you'd be in good shape.",
+					"Two wrongs don't make a right. Take your parents for example.",//
+					"You're like the ends of a loaf of bread. We all see you, but none of us want you.",
+					"I have neither the time nor crayons to explain this to you.",
+					"You're as important as a white crayon.",
+					"You're like Rapunzel, except instead of letting down your hair, you let down everyone in your life.",///
+					"You're the reason we can't have nice things."
+
+				];
+
+				let generated_insult = Math.floor(Math.random() * insults.length);
+				insult.innerText = insults[generated_insult];
+			}
 
 		</script>
 		
