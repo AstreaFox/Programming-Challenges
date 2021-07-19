@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<body>
+
+		<style>
+
+			/* inline-block needed otherwise borders on a span don't function as intended */
+			#board span
+			{
+				display: inline-block;
+				border: 5px solid #000;
+				margin: 10px;
+			}
+
+			#board img
+			{
+				height: 200px;
+				width: 200px;
+				padding: 10px;
+			}
+
+		</style>
+
+		<div style="font-size: 36px; margin: 25px 0 20px 0; width: 790px; text-align: center;">
+			whaKk-A-m0Le
+		</div>
+
+		<!-- margin: TOP, RIGHT, BOTTOM, LEFT -->
+		<div id="board" style="margin: 20px 0 0 20px; user-select: none;">
+
+			<div>
+				<span><img id="mole_1" src="Mole.jpeg"></span>
+				<span><img id="mole_2" src="Mole.jpeg"></span>
+				<span><img id="mole_3" src="Mole.jpeg"></span>
+			</div>
+
+			<div>
+				<span><img id="mole_4" src="Mole.jpeg"></span>
+				<span><img id="mole_5" src="Mole.jpeg"></span>
+				<span><img id="mole_6" src="Mole.jpeg"></span>
+			</div>
+
+			<div>
+				<span><img id="mole_7" src="Mole.jpeg"></span>
+				<span><img id="mole_8" src="Mole.jpeg"></span>
+				<span><img id="mole_9" src="Mole.jpeg"></span>
+			</div>
+
+		</div>
+
+		<div style="width: 790px; text-align: center; font-size: 24px;">
+			Your score is <span id="score">0</span>
+		</div>
+
+		<script>
+
+			const moles = [...Array(9).keys()].map(n => document.getElementById(`mole_${n+1}`));
+			const score = document.getElementById("score");
+
+			const randomizeMoles = () =>
+			{
+				moles.forEach(mole => mole.style.visibility = 
+					Math.random() >= 0.9 ? "visible" : "hidden");
+			};
+
+			moles.forEach(mole => mole.onclick = () => moleWhacked());
+	
+			let score_counter = 0;
+
+			const moleWhacked = () =>
+			{
+				score_counter++;
+				score.innerText = score_counter;
+				randomizeMoles();
+			};
+			
+			setInterval(randomizeMoles, 700);
+
+		</script>
+
+	</body>
+
+</html>
