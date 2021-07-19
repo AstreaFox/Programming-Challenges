@@ -4,11 +4,16 @@
 	<body>
 
 		<div id="button_div" style="position: fixed; padding: 60px;">
-			<button id="button" style="font-size: 20px;">Click me!</button>
+			<button id="button" style="font-size: 20px;">Leave me alone!</button>
 		</div>
 
 		<script>
 			
+			var scream = new Audio();
+			scream.src = "scream.mp3";
+
+			const PlayScream = () => scream.play();
+
 			const getRandom = (min, max) =>
 				Math.floor(Math.random() * (max - min) + min);
 			
@@ -29,7 +34,7 @@
 			const buttonDiv = document.getElementById("button_div");
 			const button = document.getElementById("button");
 
-			buttonDiv.addEventListener("mouseenter", e =>
+			buttonDiv.addEventListener("mouseenter", e => setTimeout(()=>
 			{
 				let x = 0;
 				let y = 0;
@@ -48,9 +53,9 @@
 
 				buttonDiv.style.left = `${x}px`;
 				buttonDiv.style.top = `${y}px`;
-			});
+			}, 100));
 
-			button.addEventListener("click", e => alert("Ouch!"));
+			button.addEventListener("click", e => PlayScream());
 
 		</script>
 
