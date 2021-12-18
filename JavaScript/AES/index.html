@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<script src="https://unpkg.com/crypto-js@3.1.9-1/crypto-js.js" crossorigin></script>
+
+		<title>AES Encryptor / Decryptor</title>
+
+	</head>
+
+	<body>
+
+		<div style="margin-bottom: 20px;">
+			<div style="font-size: 16px; margin-bottom: 5px;">
+				Key:
+			</div>
+			<input type="text" id="key_box"
+				style="width: 400px; font-size: 16px; font-family: monospace;">
+		</div>
+
+		<div style="margin-bottom: 20px;">
+			<div style="font-size: 16px; margin-bottom: 5px;">
+				Input Text:
+			</div>
+			<textarea id="input_box" 
+				style="width: 400px; height: 300px; font-size: 16px; font-family: monospace;">
+			</textarea>
+		</div>
+
+		<div style="margin-bottom: 20px;">
+			<div style="font-size: 16px; margin-bottom: 5px;">
+				Output Text:
+			</div>
+			<textarea id="output_box" 
+				style="width: 400px; height: 300px; font-size: 16px; font-family: monospace;">
+			</textarea>
+		</div>
+
+		<div style="margin-bottom: 20px;">
+			<button id="encrypt_button" 
+				style="font-size: 16px; margin-right: 10px;">
+				Encrypt
+			</button>
+			<button id="decrypt_button" 
+				style="font-size: 16px; margin-right: 10px;">
+				Decrypt
+			</button>
+		</div>
+
+		<script src="aes.js"></script>
+
+	</body>
+
+</html>
