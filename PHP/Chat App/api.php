@@ -9,7 +9,7 @@
 	{
 		$messages = pg_fetch_all(pg_query($db, "SELECT * FROM chat_app.messages"));
 		$formattedMessages = array_map(function ($message) 
-			{ return "[{$message["timestamp"]}] <{$message["user_name"]}> {$message["message"]}"; }, 
+			{ return "[{$message["timestamp"]}] ({$message["ip_address"]}) <{$message["user_name"]}> {$message["message"]}"; }, 
 			$messages);
 
 		echo json_encode($formattedMessages);
@@ -22,10 +22,10 @@
 		$datetime = new DateTime("now", new DateTimeZone('America/Chicago'));
 
 		pg_prepare($db, "",
-			"INSERT INTO chat_app.messages (user_name, message, timestamp) " .
-			"VALUES ($1, $2, $3)");
+			"INSERT INTO chat_app.messages (ip_address, user_name, message, timestamp) " .
+			"VALUES ($1, $2, $3, $4)");
 		pg_execute($db, "",
-			[ $message["user"], $message["message"], $datetime->format(DateTime::ATOM) ]);
+			[ $_SERVER['REMOTE_ADDR'], $message["user"], $message["message"], $datetime->format(DateTime::ATOM) ]);
 	}
 
 ?>

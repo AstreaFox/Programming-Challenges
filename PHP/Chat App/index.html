@@ -89,9 +89,10 @@
 
 			messageInput.onkeypress = e => { if (e.key === "Enter") send();	}
 
-			darkMode.onclick = () =>
+			darkMode.onclick = (e, noToggle) =>
 			{
-				darkModeToggle.value ^= 1;
+				if (!noToggle)
+					darkModeToggle.value ^= 1;
 
 				if (darkModeToggle.value === "1")
 				{
@@ -104,6 +105,8 @@
 					htmlBody.style.backgroundColor = "#eee";
 				}
 			};
+
+			darkMode.onclick(null, true);
 
 		</script>
 
